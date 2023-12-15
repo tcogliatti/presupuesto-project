@@ -2,17 +2,17 @@
     <div class="pb-5 pt-2">
         <div class="total d-flex flex-column justify-content-between">
             <p class="mb-0">Presupuesto Disponible</p>
-            <p>$ 2,300.00</p>
+            <p>{{ neto | currency }}</p>
         </div>
         <div class="income d-flex justify-content-between p-2 ps-3 pe-3 rounded-1">
             <p>INGRESOS</p>
-            <p>$ 3,600.00</p>
+            <p>{{ incomeTotal$ | async | currency }}</p>
             <p></p>
         </div>
         <div class="expenses d-flex justify-content-between p-2 ps-3 pe-3 mt-4 rounded-1">
             <p>EGRESOS</p>
-            <p>$ 1,300.00</p>
-            <p class="badge text-bg-danger">%36,11</p>
+            <p>{{ expensesTotal$ | async | currency }}</p>
+            <p><span class="badge text-bg-danger">%{{ percent }}</span></p>
         </div>
     </div>
 </div>

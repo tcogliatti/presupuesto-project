@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ContableRegistry } from '../contable-registry';
+import { ExpendServiceService } from '../services/expend-service.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-expenses-list',
@@ -9,34 +11,10 @@ import { ContableRegistry } from '../contable-registry';
 
 
 export class ExpensesListComponent {
-  expenses: ContableRegistry [] = [];
+  expensesList$: Observable<ContableRegistry[]>;
 
-  constructor(){
-    this.expenses = [
-      {
-        id: 4,
-        type: "expend",
-        description: "Gastos de oficina",
-        amount: 1500
-      },
-      {
-        id: 5,
-        type: "expend",
-        description: "Compra de muebles",
-        amount: 25800
-      },
-      {
-        id: 6,
-        type: "expend",
-        description: "Gastos de oficina",
-        amount: 1500
-      },
-      {
-        id: 7,
-        type: "expend",
-        description: "Almuerzos",
-        amount: 18700
-      },
-    ]
+  constructor(
+    private expendsService: ExpendServiceService) {
+      this.expensesList$ = expendsService.expendsList.asObservable();
   }
 }

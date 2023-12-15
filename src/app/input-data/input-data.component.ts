@@ -1,6 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { IncomeServiceService } from '../services/income-service.service';
 import { ContableRegistry } from '../contable-registry';
+import { ExpendServiceService } from '../services/expend-service.service';
 
 @Component({
   selector: 'app-input-data',
@@ -15,21 +16,25 @@ export class InputDataComponent {
   tipoDeGastoSeleccionado: string = '';
 
   constructor(
-    private incomeService: IncomeServiceService 
+    private incomeService: IncomeServiceService, 
+    private expenseService: ExpendServiceService
   ){}
 
   addRow(): void {
     if (this.tipoDeGastoSeleccionado != '' &&
       this.desc != '' &&
       this.amount != 0) {
-        const newIncome: ContableRegistry = 
+        const newAccount: ContableRegistry = 
         {
           id: 9,
           type: this.tipoDeGastoSeleccionado,
           description: this.desc,
           amount: this.amount,
         };
-        this.incomeService.addIncome(newIncome);
+        if(this.tipoDeGastoSeleccionado == "income")
+          this.incomeService.addIncome(newAccount);
+        else
+          this.expenseService.addExpend(newAccount)
       }
   }
 

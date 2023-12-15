@@ -1,7 +1,10 @@
 <div class="d-flex justify-content-between pt-2 pb-2">
-    <p class="col-8 m-0">{{expend.description}}</p>
-    <p class="col-3 m-0">{{expend.amount | currency}}</p>
+    <p class="col-6 m-0">{{expend.description}}</p>
+    <p class="col-3 m-0 cash">{{expend.amount | currency}}</p>
+    <p class="col-2 m-0">
+        <span class="badge text-bg-danger">%{{avgTotalExpenses}}</span>
+    </p>
     <p class="col-1 m-0">
-        <button type="button" class="btn-close"></button>
+        <button type="button" class="btn-close" (click)="removeIncome(expend)"></button>
     </p>
 </div>

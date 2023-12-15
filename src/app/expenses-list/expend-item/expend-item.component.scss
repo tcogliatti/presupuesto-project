@@ -1,0 +1,17 @@
+button{
+    transition: transform 0.2s ease;
+}
+button:hover{
+    transform: rotate(90deg);
+}
+.cash{
+    color: rgb(214, 54, 116);
+    font-weight: 600;
+}
+p:first-child{
+    color: rgb(76, 76, 76);
+    text-transform: capitalize;
+}
+span{
+    background-color: rgb(214, 54, 116) !important;
+}
