@@ -1,0 +1,12 @@
+<p>EGRESOS</p>
+<table class="table table-striped">
+    <tbody>
+        @for (item of expenses; track $index) {
+        <tr>
+            <td>
+                <app-expend-item [expend]="item"></app-expend-item>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
