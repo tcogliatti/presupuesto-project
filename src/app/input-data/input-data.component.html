@@ -1,18 +1,23 @@
 <div class="box-input-data">
-    <div class="mb-3 d-flex mx-auto pt-3 pb-3 w-50">
-        <div ngbDropdown class="d-inline-block me-2">
-            <button type="button" class="btn btn-primary" ngbDropdownToggle>
+    <div class="container w-50 mb-3 d-flex mx-auto pt-3 pb-3 ">
+        <!-- <div class="d-inline-block me-2"> -->
+            <select class="form-control me-2 btn btn-primary" [(ngModel)]="tipoDeGastoSeleccionado">
+                <option value="null" disabled selected>Tipo de Gasto</option>
+                <option value="income">Ingreso</option>
+                <option value="expend">Egreso</option>
+              </select>
+            <!-- <button type="button" class="btn btn-primary" ngbDropdownToggle>
                 Tipo de Gasto
             </button>
             <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                 {{ tipoDeGastoSeleccionado || 'Tipo de Gasto' }}
                 <button ngbDropdownItem (click)="seleccionarTipoGasto('income')">Ingreso</button>
                 <button ngbDropdownItem (click)="seleccionarTipoGasto('expend')">Egreso</button>
-            </div>
-        </div>
-        <input type="text" class="form-control  me-2" aria-label="Text input with dropdown button"
+            </div> -->
+        <!-- </div> -->
+        <input type="text" class="form-control me-2" aria-label="Text input with dropdown button"
             placeholder="Descripción" [(ngModel)]="desc">
-        <input type="number" class="form-control w-25 me-2" placeholder="111,22.00" [(ngModel)]="amount">
+        <input type="number" class="form-control me-2" placeholder="111,22.00" [(ngModel)]="amount">
         <button class="btn btn-warning btn-outline-dark" type="button" (click)="addRow()">Agregar</button>
     </div>
 </div>

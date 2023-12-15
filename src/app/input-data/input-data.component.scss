@@ -1,3 +1,15 @@
 .box-input-data{
     background: rgb(203, 203, 203);
 }
+select {
+    width: 20%;
+}
+input{
+    width: 50%
+}
+.container input:last-of-type{
+    width: 18%
+}
+button{
+    width: 14%
+}

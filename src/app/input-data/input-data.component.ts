@@ -11,9 +11,9 @@ import { ExpendServiceService } from '../services/expend-service.service';
 
 export class InputDataComponent {
   
-  amount: number = 0;
+  amount: number = NaN;
   desc: string = '';
-  tipoDeGastoSeleccionado: string = '';
+  tipoDeGastoSeleccionado: string = 'null';
 
   constructor(
     private incomeService: IncomeServiceService, 
@@ -21,9 +21,9 @@ export class InputDataComponent {
   ){}
 
   addRow(): void {
-    if (this.tipoDeGastoSeleccionado != '' &&
+    if (this.tipoDeGastoSeleccionado != 'null' &&
       this.desc != '' &&
-      this.amount != 0) {
+      (this.amount > 0)) {
         const newAccount: ContableRegistry = 
         {
           id: 9,
@@ -35,6 +35,11 @@ export class InputDataComponent {
           this.incomeService.addIncome(newAccount);
         else
           this.expenseService.addExpend(newAccount)
+
+        //blanqueo
+        this.desc = "";
+        this.amount = NaN;
+        this.tipoDeGastoSeleccionado = "null";
       }
   }
 
